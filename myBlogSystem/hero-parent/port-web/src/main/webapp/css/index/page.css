@@ -1,0 +1,63 @@
+.sui-pagination div {
+	float: right;
+	width: 241px
+}
+
+.sui-pagination ul {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	width: 490px;
+	float: left
+}
+
+.sui-pagination ul>.active>a {
+	background-color: #fff;
+	color: #c81623;
+	border-color: #fff;
+	cursor: default
+}
+
+.sui-pagination ul>.active>a:hover {
+	background: #ccc;
+	border: 1px solid #ddd
+}
+
+.sui-pagination ul>li {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1
+}
+
+.pagination-large ul>li>a,
+.pagination-large ul>li>span {
+	padding: 9px 18px;
+	color: #333
+}
+
+.sui-pagination ul>li>a:hover {
+	background: #ccc;
+	border: 1px solid #ddd
+}
+
+.sui-pagination ul>.dotted>span,
+.sui-pagination ul>.dotted>a {
+	border: 0
+}
+
+.pagination-large div .page-num {
+	padding: 9px 18px
+}
+
+.pagination-large div .page-num+.page-confirm {
+	padding: 7px 16px;
+	color: #666;
+	background-color: #f6f6f6;
+	border: 1px solid #ddd
+}
+
+.sui-pagination div {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1
+}

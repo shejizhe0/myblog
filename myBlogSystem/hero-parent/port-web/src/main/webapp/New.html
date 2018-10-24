@@ -1,0 +1,36 @@
+
+<!DOCTYPE html >
+<html>
+<head>
+<meta  charset=UTF-8>
+
+<title>博主主页</title>
+
+     <script type="text/javascript" src="plugins/angularjs/angular.min.js">  </script>   
+	 <!-- 分页组件开始 -->
+	<script src="plugins/angularjs/pagination.js"></script>
+	<link rel="stylesheet" href="plugins/angularjs/pagination.css">
+	<!-- 分页组件结束 -->
+	<script type="text/javascript" src="js/base_pagination.js">  </script>
+
+	<script type="text/javascript" src="js/controller/baseController.js"></script>
+
+
+
+</head>
+<body  ng-app="hero" ng-controller="blogController">
+<div class="container">
+	<div class="row">
+	            <ul ng-repeat="entity in list">
+	  				<li style="margin-bottom: 30px">
+	  					<span class="date"><a href="page-search.html">2016年02月15日</a></span>
+					  	<span class="title"><a href="page-blog-view.html#?id={{entity.id}}" >{{entity.title}}</a></span>
+					  	<span class="summary">{{entity.summary}}</span>
+					</li>
+	  			</ul>
+				 <tm-pagination conf="paginationConf"></tm-pagination>
+	 </div>
+</div>
+
+</body>
+</html>

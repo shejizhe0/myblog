@@ -1,0 +1,123 @@
+
+<!DOCTYPE html >
+<html>
+<head>
+<meta charset=utf-8>
+<title>博客内容</title>
+<link rel="stylesheet" href="css/index/bootstrap.min.css">
+<link rel="stylesheet" href="css/index/bootstrap-theme.min.css">
+<link rel="stylesheet" href="css/index/blog.css">
+<script src="js/index/jquery-1.11.2.min.js"></script>
+<script src="js/index/bootstrap.min.js"></script>
+
+
+   <script type="text/javascript" src="plugins/angularjs/angular.min.js">  </script>   
+	 <!-- 分页组件开始 -->
+	<script src="plugins/angularjs/pagination.js"></script>
+	<link rel="stylesheet" href="plugins/angularjs/pagination.css">
+	<!-- 分页组件结束 -->
+	<script type="text/javascript" src="js/base_pagination.js">  </script>
+	<script type="text/javascript" src="js/service/blogService.js">  </script>
+	<script type="text/javascript" src="js/controller/baseController.js"></script>
+	<script type="text/javascript" src="js/controller/blogController.js">  </script>
+    
+    <!-- 富文本编辑器 -->
+	<link rel="stylesheet" href="plugins/kindeditor/themes/default/default.css" /> 
+	<script charset="utf-8" src="plugins/kindeditor/kindeditor-min.js"></script>
+	<script charset="utf-8" src="plugins/kindeditor/lang/zh_CN.js"></script>
+	
+	
+
+	
+    
+</head>
+<body ng-app="hero" ng-controller="blogController" ng-init="findBlog(id)" >
+
+<div class="data_list">
+
+	<div class="data_list_title">
+	    <img src="img/blog-view/blog_return.png"/>
+	    <a class="data_list_title"  href="page-index.html"  style="text-decoration:none;font-size: 16px;border-bottom: 0" >&nbsp;返回首页&nbsp;&nbsp;&nbsp;&nbsp;</a>
+		<img src="img/blog-view/blog_show_icon.png"/>&nbsp;
+		博客信息
+		 
+	</div>
+	<div>
+		<div class="blog_title"><h3><strong>{{entity.title}}</strong></h3></div>
+		<div class="blog_content">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;摘要：{{entity.summary}}</div>
+		<div  align="right">发布时间：{{entity.releasedate}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+		      
+		 <textarea name="content" ng-model="entity.replyhit" style="width:100%;height:500px;visibility:hidden;" ></textarea>
+		 
+		
+		 <div class="blog_share">
+			<div class="bshare-custom" ><a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到人人网" class="bshare-renren"></a><a title="分享到腾讯微博" class="bshare-qqmb"></a><a title="分享到网易微博" class="bshare-neteasemb"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a><span class="BSHARE_COUNT bshare-share-count">0</span></div><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=3&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
+		</div> 
+		
+	
+		<div class="blog_keyword">关键字：
+			<c:choose>
+				<c:otherwise>
+					<c:forEach var="keyWord" items="${keyWords}">
+					&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/blog/search.html?keyword=${keyWord}" target="_blank">{{entity.keyword}} &nbsp;&nbsp;</a>
+					</c:forEach>
+				</c:otherwise>
+			</c:choose>
+			
+		</div>		
+		
+	</div>
+	
+</div>
+<div class="data_list" >
+	<div>评论信息：
+		<c:if test="${commentList.size()>10 }">
+			<a href="#">显示所有评论</a>
+		</c:if>
+	</div>
+    
+    
+    <divclass="commentDatas">
+          <p style="font-size: large;color: green;text-align: center;">由于服务器内存的太小，故暂不开发此项......</p>
+		
+	</div>
+	
+	 <div class="commentDatas">
+	
+	
+	</div> 
+
+</div>
+<div class="data_list">
+	<div class="data_list_title">
+		<img src="img/blog-view/publish_comment_icon.png"/>
+		发表评论
+	</div>
+	<div class="publish_comment">
+		<div>
+			<textarea style="width:100%" rows="3" id="content" placeholder="还未开发评论区，不能发表评论呦！！！"></textarea>
+		</div>
+		<div class="publishButton">
+			<button class="btn btn-primary" type="button" onclick="submitData()">发表评论</button>
+		</div>
+	</div>
+</div>
+
+
+<!-- 正文区域 /-->
+<script type="text/javascript">
+
+	var editor;
+	KindEditor.ready(function(K) {
+		editor = K.create('textarea[name="content"]', {
+			allowFileManager : true
+		});
+	});
+
+</script>
+
+
+
+
+</body>
+</html>

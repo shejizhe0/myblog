@@ -1,0 +1,157 @@
+
+<!DOCTYPE html >
+<html>
+<head>
+<meta  charset=UTF-8>
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <title>博主主页</title>
+<link rel="stylesheet" href="css/index/bootstrap.min.css">
+<link rel="stylesheet" href="css/index/bootstrap-theme.min.css">
+<link rel="stylesheet" href="css/index/blog.css">
+<script src="js/index/jquery-1.11.2.min.js"></script>
+<script src="js/index/bootstrap.min.js"></script>
+
+   
+    <script type="text/javascript" src="plugins/angularjs/angular.min.js">  </script>   
+	 <!-- 分页组件开始 -->
+	<script src="plugins/angularjs/pagination.js"></script>
+	<link rel="stylesheet" href="plugins/angularjs/pagination.css">
+	<!-- 分页组件结束 -->
+	<script type="text/javascript" src="js/base_pagination.js">  </script>
+	<script type="text/javascript" src="js/service/blogService.js">  </script>
+	<script type="text/javascript" src="js/controller/baseController.js"></script>
+	<script type="text/javascript" src="js/controller/blogController.js">  </script>
+
+
+
+</head>
+<body ng-app="hero" ng-controller="blogController">
+<div class="container">
+	<!-- 顶部logo start -->
+	<div class="row">
+		<div class="col-md-4" style="padding: 3px;">
+			<img src="img/index/logo.png">
+		</div>
+		<div class="col-md-8">
+			<iframe style="float: right;" width="420" scrolling="no" height="60" frameborder="0" allowtransparency="true" src="#">22018-10-10</iframe>
+		</div>
+	</div>
+	<!-- 顶部logo end -->
+	<!-- 导航栏 start -->
+	<div class="row padding_top" >
+		<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="page-index.html">首页</a>
+		    </div>
+		
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav">
+		        <li><a href="next-next-next.html">关于博主</a></li>
+		      </ul>
+		      <ul class="nav navbar-nav">
+		        <li><a href="next-next-next.html">其他</a></li>
+		      </ul>
+		     <form class="navbar-form navbar-right">
+		        <div class="form-group">
+		          <input type="text" class="form-control"  ng-model="keywords"  placeholder="请输入要搜索的内容。。。">
+		        </div>
+		        <button type="submit" class="btn btn-default" ng-click="jump()">搜索</button>
+		      </form>
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+	</div>
+	<!-- 导航栏 end -->
+	
+	<div class="row">
+	  <div class="col-md-9">
+	  	<div class="data_list">
+	  		<div class="data_list_title">
+			<img src="img/index/list_icon.png"/>
+			最新博客</div>
+	  		
+	  		<div class="datas">
+	  			<ul ng-repeat="entity in list">
+	  				<li style="margin-bottom: 30px">
+	  					<!-- <span class="date"><a href="page-search.html">2016年02月15日</a></span> -->
+					  	<span class="title"><a href="page-blog-view.html#?id={{entity.id}}" >{{entity.title}}</a></span>
+					  	<span class="summary">{{entity.summary}}</span>
+					  	<span class="info">发表于: {{entity.releasedate}} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>
+	  					
+	  				</li>
+	  				 <hr style="height:5px;border:none;border-top:1px dashed gray;padding-bottom:  10px;" />
+	  				
+	  			</ul>
+	  			 <!-- 分页 -->
+				 <tm-pagination conf="paginationConf"></tm-pagination>
+	  			
+	  		</div>
+	  	</div>
+	  </div>
+	  
+	  <div class="col-md-3">
+	  		<div class="data_list">
+				<div class="data_list_title">
+					<img  src="img/index/user_icon.png"/>
+					博主信息
+				</div>
+				<div class="user_image">
+					<img  src="img/index/200x250.jpg"/>
+				</div>
+				<div class="nickName">杨豪杰</div>
+				<div class="userSign">QQ：1826922116</div>
+				<div class="userSign">邮箱：1826922116@qq.com</div>
+				<hr>
+			
+			</div>
+	  	  
+	  		<div class="data_list">
+	  		    <div class="data_list_title">
+					<img src="img/index/list_icon.png"/>
+					公告
+				</div>
+				<div class="userSign">
+				     各位想看本博客网站源码的道友，可以造访我的GitHub仓库（在友情链接中）。<br>
+				     里面有本站的源码哟！！! 欢迎各位道友来骚扰！！
+				</div>
+			</div>
+			
+			<div class="data_list">
+				<div class="data_list_title">
+					<img src="img/index/link_icon.png"/>
+					友情链接
+				</div>
+				<div class="datas">
+					<ul>
+					    <li>
+					        <li><span><a href="https://github.com/shejizhe0" target="_blank">博主GitHub仓库地址</a></span></li>
+					    </li>
+					     <li>
+					       <li><span><a href="https://www.google.com/" target="_blank">谷歌</a></span></li>
+					    </li>
+					     <li>
+					        <li><span><a href="https://www.baidu.com/" target="_blank">百度</a></span></li>
+					    </li>
+					</ul>
+				</div>
+			</div>
+			
+			
+	  </div>
+	</div>
+	
+	
+	
+</div>
+
+</body>
+</html>
